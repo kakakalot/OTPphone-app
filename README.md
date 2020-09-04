@@ -1,4 +1,4 @@
-# React Native Coding Challenge
+# OTPphone-app
 
 Our React-Native coding challenge is a simple "Mobile Phone Authentication". Users should be able to authenticate using their mobile number and otp code (6 characters).
 
