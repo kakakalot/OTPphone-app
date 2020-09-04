@@ -1,0 +1,54 @@
+{
+  "name": "RNChallenge",
+  "version": "1.0.0",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "run-ip8": "react-native run-ios --simulator \"iPhone 8\"",
+    "watch-type-check": "tsc --skipLibCheck true --watch",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.7.3",
+    "@react-navigation/stack": "^5.9.0",
+    "lodash": "^4.17.20",
+    "native-base": "^2.13.14",
+    "react": "16.11.0",
+    "react-native": "0.62.2",
+    "react-native-gesture-handler": "^1.7.0",
+    "react-native-reanimated": "^1.13.0",
+    "react-native-safe-area-context": "^3.1.7",
+    "react-native-screens": "^2.10.1",
+    "react-native-splash-screen": "^3.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.10.4",
+    "@babel/plugin-proposal-export-default-from": "7.10.4",
+    "@babel/plugin-proposal-export-namespace-from": "7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "7.10.4",
+    "@babel/runtime": "7.10.4",
+    "@react-native-community/eslint-config": "2.0.0",
+    "@types/lodash": "^4.14.161",
+    "@types/node": "10.12.18",
+    "@types/react": "16.9.41",
+    "@types/react-native": "0.62.14",
+    "babel-jest": "26.1.0",
+    "babel-plugin-module-resolver": "4.0.0",
+    "eslint": "7.3.1",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-simple-import-sort": "5.0.3",
+    "jest": "26.1.0",
+    "metro-react-native-babel-preset": "0.60.0",
+    "prettier": "2.0.5",
+    "react-test-renderer": "16.11.0",
+    "typescript": "^3.9.5"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
