@@ -3,13 +3,11 @@
 Our React-Native coding challenge is a simple "Mobile Phone Authentication". Users should be able to authenticate using their mobile number and otp code (6 characters).
 
 ```en
-Important: Please make sure you use ReactNative and ReactNavigation.
+Important: Please make sure you use ReactNative and ReactNavigation. Codes should be written in Typescript.
 ```
 
-## Suggested design and assets
-
-You can find bellow a design mockup for the challenge. Feel free to use it or create your own:
-https://www.figma.com/file/4dIfp7ejLdCO8BdqpeWzrt/React-Native-Challenge
+## Suggested design
+![Design](/otpphone-workflow.png)
 
 ## Main Features of the app
 
@@ -39,11 +37,3 @@ Expect:
 - Countdown 30s before enable the Resend button. After tap Resend, begin countdown again.
 - Actions buttons will be sticked to bottom screen and above keyboard.
 ```
-
-## Evaluation Criteria
-
-- Understanding of core Javascript, Typescript concepts
-- Understanding of ReactNative and ReactNavigation frameworks
-- Code and component reuse/extensibility
-- Code design
-- Component lifecycle
