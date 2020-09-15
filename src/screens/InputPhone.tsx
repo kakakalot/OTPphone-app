@@ -1,10 +1,12 @@
 import React, {useState, useEffect, useRef} from 'react';
+import {observer} from 'mobx-react';
 import {StyleSheet, View, TextInput, Platform} from 'react-native';
 import {Button, Text} from 'native-base';
 import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
 import {primaryColor, borderColor} from '@root/colors';
 import {Routes} from '@root/navigators/Routes';
 import {KeyboardAvoidingView} from '@root/components';
+import {useStores} from '@root/stores';
 
 type ParamList = {
   InputPhone: {
@@ -12,22 +14,21 @@ type ParamList = {
   };
 };
 
-const InputPhone = () => {
+const InputPhone = observer(() => {
   const {navigate} = useNavigation();
-  const params = useRoute<RouteProp<ParamList, 'InputPhone'>>().params;
-  const [phone, setPhone] = useState('');
+  const {dataStore} = useStores();
+  // const params = useRoute<RouteProp<ParamList, 'InputPhone'>>().params;
+  // const [phone, setPhone] = useState('');
   const [isFocus, setFocus] = useState(false);
   const inputRef = useRef<TextInput>(null);
   const onChangeText = (text: string) => {
-    setPhone(text.replace(/[^0-9]/g, ''));
+    dataStore.updatePhoneNumber(text.replace(/[^0-9]/g, ''));
+  };
+  const goToOTPScreen = () => {
+    navigate(Routes.inputOTP.name);
   };
 
-  useEffect(() => {
-    if (params?.clearPhoneNumber) {
-      setPhone('');
-      inputRef.current?.focus();
-    }
-  }, [params?.clearPhoneNumber]);
+  useEffect(() => dataStore.clear(), [dataStore]);
 
   return (
     <KeyboardAvoidingView>
@@ -43,7 +44,7 @@ const InputPhone = () => {
           <TextInput
             style={styles.input}
             ref={inputRef}
-            value={phone}
+            value={dataStore.phoneNumber}
             autoFocus
             selectionColor={primaryColor}
             onBlur={() => setFocus(false)}
@@ -56,14 +57,14 @@ const InputPhone = () => {
       </View>
       <Button
         full
-        disabled={!phone}
-        style={[styles.button, !phone && styles.buttonDisabled]}
-        onPress={() => navigate(Routes.inputOTP.name)}>
+        disabled={dataStore.isPhoneEmpty}
+        style={[styles.button, dataStore.isPhoneEmpty && styles.buttonDisabled]}
+        onPress={goToOTPScreen}>
         <Text>{'Continue'}</Text>
       </Button>
     </KeyboardAvoidingView>
   );
-};
+});
 
 export default InputPhone;
 

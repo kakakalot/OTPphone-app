@@ -10,11 +10,14 @@ import {
 } from '@root/components';
 import {Routes} from '@root/navigators/Routes';
 import {SUBMIT_OPT_TIMEOUT} from '@root/configs';
+import {useStores} from '@root/stores';
 
 const InputOTP = () => {
-  const {navigate} = useNavigation();
+  const {navigate, goBack} = useNavigation();
+  const {dataStore} = useStores();
   const changeNumberPress = () => {
-    navigate(Routes.inputPhone.name, {clearPhoneNumber: new Date().getTime()});
+    dataStore.updatePhoneNumber('');
+    goBack();
   };
   const onFulfill = (code: string) => {
     console.log('onFulfill, code: ', code);
@@ -31,7 +34,10 @@ const InputOTP = () => {
         <Text style={{textAlign: 'center'}}>
           {'Input your OPT code sent via SMS'}
         </Text>
-        <OTPCodeInput numberOfCode={6} autoFocus onFulfill={onFulfill} />
+        <Text style={{textAlign: 'center', fontWeight: 'bold'}}>
+          {dataStore.phoneNumber}
+        </Text>
+        <OTPCodeInput autoFocus numberOfCode={6} onFulfill={onFulfill} />
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={changeNumberPress}>

@@ -10,6 +10,8 @@
     "noEmit": true,
     "strict": true,
     "target": "esnext",
+    "sourceMap": true,
+    "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
     "baseUrl": ".",
     "paths": {
       "@root/*": ["src/*"]

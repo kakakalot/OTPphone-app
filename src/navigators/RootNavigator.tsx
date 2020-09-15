@@ -22,6 +22,7 @@ const RootNavigator = () => {
             headerShown: false,
             cardStyle: {backgroundColor: 'transparent'},
             gestureEnabled: false,
+            animationEnabled: false,
           }}
         />
       </Stack.Navigator>
